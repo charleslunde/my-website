@@ -12,6 +12,7 @@
 <body>
 <header>
     <div class="logo">Charles Lunde</div>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -22,6 +23,15 @@
         <a href="https://www.google.com/?client=safari">GOOOOOOGLE</a>
     </div>
 </header>  
+<script>
+  const header = document.querySelector("header");
+  const toggle = document.querySelector(".menu-toggle");
+
+  toggle.addEventListener("click", () => {
+    const isOpen = header.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", isOpen);
+  });
+</script>
 </body>
 <main>
     <h1>About me</h1>
