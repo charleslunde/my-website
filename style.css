@@ -9,16 +9,26 @@ h1 {
   color:#D18266;
 }
 
+base {
+    bottom: 0;
+    background: #5B6D92;
+    padding: 45px 20px;
+    border-top: 5px solid black;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
 header {
-  position: sticky;
-  top: 0;
-  background: #5B6D92;
-  padding: 15px 20px;
-  border-bottom: 5px solid black;
-  border-top: 5px solid black;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+    position: sticky;
+    top: 0;
+    background: #5B6D92;
+    padding: 15px 20px;
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
 }
 
 nav a {
