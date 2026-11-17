@@ -1,74 +1,152 @@
+/* ==========================================================
+   TABLE OF CONTENTS
+   1. Global / base styles (body, headings, paragraphs)
+   2. Header (logo, nav, header-right button, menu toggle)
+   3. Footer / base bar
+   4. Page layout (main)
+   5. Forms and buttons
+   6. Images and hero section
+   7. About page
+   8. Phone styles (media queries) - keep these LAST
+   ========================================================== */
+
+
+/* ==========================================================
+   1. GLOBAL / BASE STYLES
+   ========================================================== */
+
+/* page background, default font, default text color */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #F0F0F0;
+  color: black;
+}
+
+/* main headings */
+h1 {
+  color: #E7473C;
+}
+
+/* paragraphs (empty for now) */
+p {
+}
+
+/* for indented paragraphs (p) */
+.indented {
+  text-indent: 2em;
+}
+
+
+/* ==========================================================
+   2. HEADER
+   ========================================================== */
+
+/* the sticky top bar: 3 columns (logo | nav | right button) */
 header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #5B6D92;
+    background: #F0F0F0;
     padding: 15px 20px;
-    border-bottom: 5px solid black;
-    border-top: 5px solid black;
+    border-bottom: 1px solid black;
+    /*border-top: 5px solid black; */
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #D5E3E6;
-  color: black;
+/* your name in the top left */
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #E7473C;
 }
 
-h1 {
-  color: #D18266;
-}
-
-base {
-    bottom: 0;
-    background: #5B6D92;
-    padding: 45px 20px;
-    border-top: 5px solid black;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: white;
-}
-
+/* the nav container (centers the links) */
 nav {
     text-align: center;
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
+/* the individual links inside the nav */
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #E7473C;
 }
 
+/* the third column on the right side of the header */
 .header-right {
     text-align: right;
-    color: white;
+    color: #E7473C;
     font-weight: bold;
 }
 
+/* the link styled as a button inside .header-right */
 .header-right a {
-    background: white;
-    color: #D18266;
-    padding: 8px 16px;
-    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    color: #E7473C;
     text-decoration: none;
-    font-size: 22px;
 }
 
+.header-right a + a {
+  margin-left: 10px;
+}
+
+.header-right svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* the hamburger button (hidden on desktop, shown on phones below) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #E7473C;
+  cursor: pointer;
+}
+
+
+/* ==========================================================
+   3. FOOTER / BASE BAR
+   ========================================================== */
+
+base {
+    bottom: 0;
+    background: #E7473C;
+    padding: 30px 0px;
+    border-top: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+
+/* ==========================================================
+   4. PAGE LAYOUT
+   ========================================================== */
+
+/* the centered content column under the header */
 main {
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
+main a {
+  color: black;
+}
+
+
+/* ==========================================================
+   5. FORMS AND BUTTONS
+   ========================================================== */
+
+/* contact form fields */
 input, textarea {
   width: 100%;
   max-width: 400px;
@@ -78,28 +156,27 @@ input, textarea {
   box-sizing: border-box;
 }
 
+/* form submit button */
 button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
+
+/* ==========================================================
+   6. IMAGES AND HERO SECTION
+   ========================================================== */
 
 /* images */
 
+/* all images: never wider than their container */
 img {
   max-width: 100%;
   height: auto;
 }
 
+/* the big photo at the top of the page */
 .hero-image {
   display: block;
   width: 100%;
@@ -107,10 +184,12 @@ img {
   object-fit: cover;
 }
 
+/* wrapper holding the photo and the text on top of it */
 .hero {
   position: relative;
 }
 
+/* the text layer sitting on top of the hero photo */
 .hero-text {
   position: absolute;
   inset: 0;
@@ -120,17 +199,61 @@ img {
   padding-top: 100px;
   align-items: center;
   text-align: center;
-  color: white;
+  color: #F0F0F0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
+/* the heading on top of the hero photo */
 .hero-text h1 {
-  color: #D18266;
+  color: #E7473C;
   font-size: 60px;
   margin: 0;
 }
 
+
+/* ==========================================================
+   7. ABOUT PAGE
+   ========================================================== */
+
+/* About section */
+
+/* two-column area at the top: photo on the left, text on the right */
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+/* the photo in the left column */
+.about-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* the text in the right column (empty for now) */
+.about-text {;
+}
+
+/* ==========================================================
+   MUSIC PAGE
+   ========================================================== */
+
+/* Spotify embeds: space between each player */
+iframe {
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* ==========================================================
+   8. PHONE STYLES (MEDIA QUERIES)
+   These must stay at the bottom so they override the rules above.
+   ========================================================== */
+
 /* phone style */
+
+/* header on phones: logo + hamburger button, menu opens below */
 @media (max-width: 700px) {
   header {
     grid-template-columns: 1fr auto;
@@ -160,11 +283,19 @@ img {
   }
 }
 
+/* smaller hero text on phones */
 @media (max-width: 700px) {
   .hero-text h1 {
     font-size: 30px;
   }
   .hero-text p {
     font-size: 16px;
+  }
+}
+
+/* About section on phones: photo stacks above the text */
+@media (max-width: 500px) {
+  .about-intro {
+    grid-template-columns: 1fr;
   }
 }
